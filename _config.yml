@@ -22,4 +22,4 @@ defaults:
       path: ""
       type: sessions
     values:
-      layout: page
+      layout: session

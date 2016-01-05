@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% comment %}
+This slightly tortuous code is needed since Liquid doesn't have a `where`-style filter that returns an index
+{% endcomment %}
+{% assign filename = page.relative_path | remove:"_sessions/" | remove:".md" %}
+{% for session_name in site.data.sessions_order %}
+  {% if session_name == filename %}
+    {% assign session_index = forloop.index %}
+  {% endif %}
+{% endfor %}
+
+<div class="session">
+  <h1>
+    <small class="session-title-index">Session {{ session_index }}</small>
+    {{ page.title }}
+  </h1>
+
+  <article class="session-content">
+    {{ content }}
+  </article>
+</div>

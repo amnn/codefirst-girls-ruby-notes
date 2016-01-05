@@ -39,3 +39,7 @@ body {
 .sessions-list ul {
   list-style-type: disc;
 }
+
+.session-title-index {
+  display: block;
+}
