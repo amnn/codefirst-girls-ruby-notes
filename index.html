@@ -2,22 +2,27 @@
 layout: default
 ---
 
-<div class="home">
+<div class="container sessions-list-wrapper">
+  <h1>Contents</h1>
 
-  <h1 class="page-heading">Posts</h1>
+  <ol class="sessions-list">
+    {% for session_file in site.data.sessions_order %}
+      {% assign relative_path = session_file | prepend:"_sessions/" | append:".md" %}
+      {% assign session = site.sessions | where:"relative_path", relative_path | first %}
 
-  <ul class="post-list">
-    {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <h2 class="h4">
+          <a class="session-link" href="{{ session.url | prepend: site.baseurl }}">
+            Session {{ forloop.index }}: {{ session.title }}
+          </a>
         </h2>
+
+        <ul>
+          {% for topic in session.topics %}
+            <li>{{ topic }}</li>
+          {% endfor %}
+        </ul>
       </li>
     {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  </ol>
 </div>

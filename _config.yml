@@ -7,3 +7,19 @@ twitter_username: CodeFirstGirls
 
 # Build settings
 markdown: kramdown
+
+# Default on GitHub Pages
+safe: true
+lsi: false
+
+collections:
+  sessions:
+    output: true
+    permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: sessions
+    values:
+      layout: page
