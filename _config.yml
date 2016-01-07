@@ -13,6 +13,10 @@ safe: true
 lsi: false
 
 collections:
+  # `sections` must come before `sessions` here to be properly rendered
+  sections:
+    output: false
+
   sessions:
     output: true
     permalink: /:title/

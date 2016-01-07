@@ -6,6 +6,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 40px;
+  margin-top: 50px;
 }
 
 .site-footer {
@@ -42,4 +43,31 @@ body {
 
 .session-title-index {
   display: block;
+}
+
+.session-header {
+  padding-left: 240px;
+}
+
+.session-tabs {
+  bottom: 0;
+  width: 200px;
+  background-color: #fff;
+  padding-top: 24px;
+}
+
+.session-tabs.affix-top {
+  position: absolute;
+  top: 172px;
+}
+
+.session-tabs.affix {
+  position: fixed;
+  top: 51px;
+}
+
+.session {
+  min-height: 400px;
+  margin-left: 200px;
+  padding: 0 40px 80px;
 }
