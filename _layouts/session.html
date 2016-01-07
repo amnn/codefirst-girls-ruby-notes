@@ -40,6 +40,25 @@ This slightly tortuous code is needed since Liquid doesn't have a `where`-style 
 
         <section class="tab-pane{% if forloop.index ==1 %} active{% endif %}" id="{{ section_name | slugify }}">
           {{ section.output }}
+
+          {% assign prev = forloop.index0 | minus:"1" %}
+          {% assign next = forloop.index0 | plus:"1" %}
+
+          <nav>
+            <ul class="pager">
+              {% unless forloop.first %}
+                <li class="previous">
+                  <a href="#{{ page.sections[prev] | slugify }}" data-pagination="true"><span aria-hidden="true">&larr;</span> Previous</a>
+                </li>
+              {% endunless %}
+
+              {% unless forloop.last %}
+                <li class="next">
+                  <a href="#{{ page.sections[next] | slugify }}" data-pagination="true">Next <span aria-hidden="true">&rarr;</span></a>
+                </li>
+              {% endunless %}
+            </ul>
+          </nav>
         </section>
       {% endfor %}
     </div>
