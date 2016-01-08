@@ -4,8 +4,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 40px;
+  /* Margin bottom by footer height (+ top padding of the same) */
+  margin-bottom: 80px;
+  /* Margin top by navbar height */
   margin-top: 50px;
 }
 
@@ -17,7 +18,6 @@ body {
   height: 40px;
   background-color: #222;
   padding: 10px;
-  margin-top: 40px;
 }
 
 .site-footer ul {
@@ -28,24 +28,24 @@ body {
   color: #fff;
 }
 
-.sessions-list-wrapper {
-  max-width: 800px;
-}
-
 .sessions-list {
   list-style: none;
   padding-left: 0;
+  margin-left: 240px;
+  margin-bottom: 80px;
 }
 
 .sessions-list ul {
   list-style-type: disc;
 }
 
-.session-title-index {
+.session-title-index,
+.main-header-subtitle {
   display: block;
 }
 
-.session-header {
+.session-header,
+.main-header {
   padding-left: 240px;
 }
 
