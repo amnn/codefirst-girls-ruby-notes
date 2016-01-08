@@ -19,48 +19,56 @@ This slightly tortuous code is needed since Liquid doesn't have a `where`-style 
     </h1>
   </header>
 
-  <ul class="nav nav-pills nav-stacked session-tabs" role="tablist" data-spy="affix" data-offset-top="120" data-offset-bottom="0">
-    {% for section_name in page.sections %}
-      {% assign relative_path = section_name | prepend:"/" | prepend:filename | prepend:"_sections/" | append:".md" %}
-      {% assign section = site.sections | where:"relative_path", relative_path | first %}
-
-      <li role="presentation"{% if forloop.index == 1 %} class="active"{% endif %}>
-        <a href="#{{ section_name | slugify }}" aria-controls="{{ section_name | slugify }}" role="tab" data-toggle="tab">
-          {{ section.title }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <article class="session">
-    <div class="tab-content">
+  {% if page.sections %}
+    <ul class="nav nav-pills nav-stacked session-tabs" role="tablist" data-spy="affix" data-offset-top="120" data-offset-bottom="0">
       {% for section_name in page.sections %}
         {% assign relative_path = section_name | prepend:"/" | prepend:filename | prepend:"_sections/" | append:".md" %}
         {% assign section = site.sections | where:"relative_path", relative_path | first %}
 
-        <section class="tab-pane{% if forloop.index ==1 %} active{% endif %}" id="{{ section_name | slugify }}">
-          {{ section.output }}
-
-          {% assign prev = forloop.index0 | minus:"1" %}
-          {% assign next = forloop.index0 | plus:"1" %}
-
-          <nav>
-            <ul class="pager">
-              {% unless forloop.first %}
-                <li class="previous">
-                  <a href="#{{ page.sections[prev] | slugify }}" data-pagination="true"><span aria-hidden="true">&larr;</span> Previous</a>
-                </li>
-              {% endunless %}
-
-              {% unless forloop.last %}
-                <li class="next">
-                  <a href="#{{ page.sections[next] | slugify }}" data-pagination="true">Next <span aria-hidden="true">&rarr;</span></a>
-                </li>
-              {% endunless %}
-            </ul>
-          </nav>
-        </section>
+        <li role="presentation"{% if forloop.index == 1 %} class="active"{% endif %}>
+          <a href="#{{ section_name | slugify }}" aria-controls="{{ section_name | slugify }}" role="tab" data-toggle="tab">
+            {{ section.title }}
+          </a>
+        </li>
       {% endfor %}
-    </div>
-  </article>
+    </ul>
+
+    <article class="session">
+      <div class="tab-content">
+        {% for section_name in page.sections %}
+          {% assign relative_path = section_name | prepend:"/" | prepend:filename | prepend:"_sections/" | append:".md" %}
+          {% assign section = site.sections | where:"relative_path", relative_path | first %}
+
+          <section class="tab-pane{% if forloop.index ==1 %} active{% endif %}" id="{{ section_name | slugify }}">
+            {{ section.output }}
+
+            {% assign prev = forloop.index0 | minus:"1" %}
+            {% assign next = forloop.index0 | plus:"1" %}
+
+            <nav>
+              <ul class="pager">
+                {% unless forloop.first %}
+                  <li class="previous">
+                    <a href="#{{ page.sections[prev] | slugify }}" data-pagination="true"><span aria-hidden="true">&larr;</span> Previous</a>
+                  </li>
+                {% endunless %}
+
+                {% unless forloop.last %}
+                  <li class="next">
+                    <a href="#{{ page.sections[next] | slugify }}" data-pagination="true">Next <span aria-hidden="true">&rarr;</span></a>
+                  </li>
+                {% endunless %}
+              </ul>
+            </nav>
+          </section>
+        {% endfor %}
+      </div>
+    </article>
+  {% else %}
+    <article class="session">
+      <div class="tab-content">
+        {{ content }}
+      </div>
+    </article>
+  {% endif %}
 </div>
