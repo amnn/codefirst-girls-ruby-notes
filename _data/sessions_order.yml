@@ -2,3 +2,9 @@
 # This file determines the order of the sessions (shown on index.html)
 - basics_pt_1
 - basics_pt_2
+- sinatra
+- competition_1
+- external_apis_email
+- external_apis_twitter
+- competition_2
+- project_presentations
