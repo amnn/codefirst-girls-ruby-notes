@@ -7,6 +7,7 @@ twitter_username: CodeFirstGirls
 
 # Build settings
 markdown: kramdown
+exclude: ["Rakefile", "css/wkhtmltopdf.css"]
 
 # Default on GitHub Pages
 safe: true

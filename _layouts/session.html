@@ -14,7 +14,10 @@ This slightly tortuous code is needed since Liquid doesn't have a `where`-style 
 <div class="container">
   <header class="page-header session-header">
     <h1>
-      <small class="session-title-index">Session {{ session_index }}</small>
+      <small class="session-title-index">
+        <span class="pdf-only">CFG Advanced Ruby: </span>
+        Session {{ session_index }}
+      </small>
       {{ page.title }}
     </h1>
   </header>
@@ -45,7 +48,7 @@ This slightly tortuous code is needed since Liquid doesn't have a `where`-style 
             {% assign prev = forloop.index0 | minus:"1" %}
             {% assign next = forloop.index0 | plus:"1" %}
 
-            <nav>
+            <nav class="session-pagination">
               <ul class="pager">
                 {% unless forloop.first %}
                   <li class="previous">

@@ -79,3 +79,7 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+.pdf-only {
+  display: none !important;
+}

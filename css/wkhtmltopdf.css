@@ -1,0 +1,34 @@
+/* Hide web-specific content */
+.navbar,
+.session-tabs,
+.session-pagination,
+.site-footer {
+  display: none !important;
+}
+
+/* Show all tabs */
+.tab-content > .tab-pane {
+  display: block !important;
+}
+
+/* Remove left indent on content */
+.session {
+  margin-left: 0 !important;
+}
+
+.session-header {
+  padding-left: 40px !important;
+}
+
+.session section {
+  page-break-after: always;
+}
+
+/* Don't add an empty page after the last section */
+.session section:last-child {
+  page-break-after: avoid;
+}
+
+.pdf-only {
+  display: initial !important;
+}
