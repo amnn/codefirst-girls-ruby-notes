@@ -11,6 +11,21 @@ layout: default
   </header>
 
   <ol class="sessions-list">
+    {% assign prep_page = site.pages | where:"path", "course-preparation/index.md" | first %}
+    <li>
+      <h2 class="h4">
+        <a class="session-link" href="{{ prep_page.url | replace:"index.html", "" }}">
+          {{ prep_page.subtitle }}: {{ prep_page.title }}
+        </a>
+      </h2>
+
+      <ul>
+        {% for topic in prep_page.topics %}
+          <li>{{ topic }}</li>
+        {% endfor %}
+      </ul>
+    </li>
+
     {% for session_file in site.data.sessions_order %}
       {% assign relative_path = session_file | prepend:"_sessions/" | append:".md" %}
       {% assign session = site.sessions | where:"relative_path", relative_path | first %}

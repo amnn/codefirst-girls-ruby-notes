@@ -16,7 +16,11 @@ This slightly tortuous code is needed since Liquid doesn't have a `where`-style 
     <h1>
       <small class="session-title-index">
         <span class="pdf-only">CFG Advanced Ruby: </span>
-        Session {{ session_index }}
+        {% if page.subtitle %}
+          {{ page.subtitle }}
+        {% else %}
+          Session {{ session_index }}
+        {% endif %}
       </small>
       {{ page.title }}
     </h1>
