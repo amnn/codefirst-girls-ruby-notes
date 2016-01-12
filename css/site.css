@@ -80,6 +80,16 @@ body {
   height: auto;
 }
 
+.task {
+  background-color: #d9edf7;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+.task h2 {
+  margin-top: 5px;
+}
+
 .pdf-only {
   display: none !important;
 }
