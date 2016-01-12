@@ -2,6 +2,8 @@
 title: Recap
 ---
 
+## Recap
+
 - What is RubyGems?
 - How do you write comments in Ruby?
 - What is the difference between `10 / 3` and `10 / 3.0` in Ruby?
