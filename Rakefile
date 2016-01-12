@@ -4,8 +4,8 @@ require 'uri'
 require 'jekyll'
 
 # Configuration
-wkhtmltopdf = ENV["WKHTMLTOPDF"] || "wkhtmltopdf"
-jekyll_port = ENV["JEKYLL_PORT"] || 5000
+WKHTMLTOPDF = ENV["WKHTMLTOPDF"] || "wkhtmltopdf"
+JEKYLL_PORT = ENV["JEKYLL_PORT"] || 5000
 
 jekyll_site = Jekyll::Site.new(Jekyll.configuration quiet: true)
 jekyll_site.read
@@ -21,13 +21,14 @@ namespace :pdf do
   task :regenerate => [:clobber, :create]
 end
 
-sessions.each_with_index do |session, num|
-  pdf_filename = File.join("_pdfs", "advanced_ruby_session_#{num + 1}.pdf")
+def pdf_file_task(suffix, path, wkhtmltopdf_options = [])
+  pdf_filename = File.join("_pdfs", "advanced_ruby_session_#{suffix}.pdf")
 
   file pdf_filename => "_pdfs" do |t|
-    cmd = [wkhtmltopdf]
+    cmd = [WKHTMLTOPDF]
     cmd << "--user-style-sheet " + File.join("css", "wkhtmltopdf.css")
-    cmd << URI.join("http://localhost:#{jekyll_port}", session.url).to_s
+    cmd << wkhtmltopdf_options.join(" ")
+    cmd << URI.join("http://localhost:#{JEKYLL_PORT}", path).to_s
     cmd << pdf_filename
 
     system cmd.join " "
@@ -35,6 +36,13 @@ sessions.each_with_index do |session, num|
 
   task "pdf:create" => pdf_filename
   CLOBBER << pdf_filename
+end
+
+pdf_file_task "outline", "/", ["--disable-external-links", "--no-outline"]
+pdf_file_task "prep", "/course-preparation/"
+
+sessions.each_with_index do |session, index|
+  pdf_file_task index + 1, session.url
 end
 
 task :default => "pdf:create"

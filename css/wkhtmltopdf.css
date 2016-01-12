@@ -16,7 +16,12 @@
   margin-left: 0 !important;
 }
 
-.session-header {
+.sessions-list {
+  margin-left: 40px !important;
+}
+
+.session-header,
+.page-header {
   padding-left: 40px !important;
 }
 
@@ -29,6 +34,18 @@
   page-break-after: avoid;
 }
 
+.task {
+  page-break-inside: avoid;
+}
+
+.sessions-list a {
+  color: inherit !important;
+}
+
 .pdf-only {
   display: initial !important;
+}
+
+.hidden-on-pdf {
+  display: none !important
 }

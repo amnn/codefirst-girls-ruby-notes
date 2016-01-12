@@ -12,7 +12,7 @@ layout: default
 
   <ol class="sessions-list">
     {% assign prep_page = site.pages | where:"path", "course-preparation/index.md" | first %}
-    <li>
+    <li class="hidden-on-pdf">
       <h2 class="h4">
         <a class="session-link" href="{{ prep_page.url | replace:"index.html", "" }}">
           {{ prep_page.subtitle }}: {{ prep_page.title }}
