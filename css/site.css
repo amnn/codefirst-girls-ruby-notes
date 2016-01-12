@@ -31,7 +31,7 @@ body {
 .sessions-list {
   list-style: none;
   padding-left: 0;
-  margin-left: 240px;
+  margin-left: 280px;
   margin-bottom: 80px;
 }
 
@@ -46,12 +46,12 @@ body {
 
 .session-header,
 .main-header {
-  padding-left: 240px;
+  padding-left: 280px;
 }
 
 .session-tabs {
   bottom: 0;
-  width: 200px;
+  width: 240px;
   background-color: #fff;
   padding-top: 24px;
 }
@@ -68,7 +68,7 @@ body {
 
 .session {
   min-height: 400px;
-  margin-left: 200px;
+  margin-left: 240px;
   padding: 0 40px 80px;
 }
 
@@ -88,6 +88,10 @@ body {
 
 .task h2 {
   margin-top: 5px;
+}
+
+p code {
+  white-space: nowrap;
 }
 
 .pdf-only {
