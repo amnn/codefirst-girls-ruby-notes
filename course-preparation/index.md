@@ -4,6 +4,7 @@ title: Preparation
 subtitle: Pre-course
 topics:
   - Install Ruby on your computer
+  - Introduction to the command line
 ---
 
 ## Prerequisites
