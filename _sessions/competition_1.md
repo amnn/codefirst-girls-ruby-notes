@@ -10,4 +10,4 @@ This is also an opportunity to ask questions and clarify things that are unclear
 
 ## Homework
 
-Before next week's session, you should all head to [Mandrill's website](http://mandrill.com/) and create an account - don't worry about what this is about, we will explain everything and go into details next week.
+Before next week's session, you should all head to [Mailgun's website](http://www.mailgun.com/) and create an account - don't worry about what this is about, we will explain everything and go into details next week.
