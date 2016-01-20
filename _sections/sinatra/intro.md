@@ -41,8 +41,8 @@ The rest of the code is using Sinatra's `get` function to define a *route* (a UR
 <div class="task" markdown="1">
 ## Task:
 
-- Run the simple hello.py application by doing `ruby hello.py` and hitting enter
+- Run the simple hello.rb application by doing `ruby hello.rb` and hitting enter
 - Navigate to [localhost:4567](http://localhost:4567) in your browser and confirm that you see the message expected
-- Make a change to hello.py - return something other than Hello World! - refresh the page in your browser and see what happens (you will need to reboot your server in the meantime by pressing `Ctrl+C`)
+- Make a change to hello.rb - return something other than Hello World! - refresh the page in your browser and see what happens (you will need to reboot your server in the meantime by pressing `Ctrl+C`)
 - Try visiting a URL like [localhost:4567/i/dont/exist](http://localhost:4567/i/dont/exist) - what happens?
 </div>
