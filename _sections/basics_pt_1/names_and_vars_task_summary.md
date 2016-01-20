@@ -24,4 +24,4 @@ This might seem really obvious, but it's worth pointing out: `=` is an assignmen
 => "Hello Dave!"
 {% endhighlight %}
 
-The above shows that string interpolation happens when you write it down. When you first write `f = "Hello {0}!".format(name)` Ruby immediately looks up `name` and bakes it straight into the string. Setting `name` to something different later on won't change this.
+The above shows that string interpolation happens when you write it down. When you first write `f = "Hello #{name}!"` Ruby immediately looks up `name` and bakes it straight into the string. Setting `name` to something different later on won't change this.
