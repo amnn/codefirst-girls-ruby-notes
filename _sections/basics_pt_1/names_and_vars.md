@@ -32,7 +32,7 @@ In the code above, string1 and string2 are exactly the same.
 {% highlight ruby %}
 age = 5
 like = "painting"
-age_description = "My age is #{age} and I like #{painting}."
+age_description = "My age is #{age} and I like #{like}."
 #=> "My age is 5 and I like painting."
 {% endhighlight %}
 
@@ -41,7 +41,7 @@ So what just happened here? Essentially, `#{}` let us insert (or *interpolate*) 
 As well as variables, we can also add some Ruby code:
 
 {% highlight ruby %}
-age_description = "My age is #{age * 4} and I like #{painting.upcase}."
+age_description = "My age is #{age * 4} and I like #{like.upcase}."
 #=> "My age is 20 and I like PAINTING."
 
 "3 times 2 is #{3 * 2}"
